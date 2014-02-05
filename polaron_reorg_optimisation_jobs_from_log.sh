@@ -14,7 +14,7 @@ cat > "${i%.*}_ion_opt.com" << EOF
 %chk=${i%.*}_ion_opt.chk
 %Mem=8Gb
 %nproc=8
-#p geom=check guess=read opt b3lyp/6-31g*
+#p opt b3lyp/6-31g*
 
 B3lyp auto opt job - neutral state
 
@@ -28,7 +28,7 @@ cat > "${i%.*}_neutral_opt.com" << EOF
 %chk=${i%.*}_neutral_opt.chk
 %Mem=8Gb
 %nproc=8
-#p geom=check guess=read opt b3lyp/6-31g*
+#p opt b3lyp/6-31g*
 
 B3lyp auto opt job - neutral state
 
