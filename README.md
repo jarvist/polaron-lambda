@@ -41,11 +41,11 @@ The scripts are very hairy.
 
 * Have a tasty look at the reorganisation energies with the handy ./calc_reorg_energy.sh script
 ````
-    >./calc_reorg_energy.sh mylovelymolecule
+    >./calc_reorg_energy.sh C60_b3lypopt [here's one I made earlier...]
     C60_b3lypopt
     N_ion:  -2286.24731990 N_neu:  -2286.17409196 I_ion:  -2286.24982989 I_neu:  -2286.17154854
     Neutral transition (I_new-N_neu) in eV: .06920900162
     Ion transition (N_ion - I_ion) in eV: .06829933789
     .13750833951
 ````
-* C60 has an inner sphere reorganisation energy of 138 meV at b3lyp/6-31g*.
+--> C60 has an inner sphere reorganisation energy of 138 meV at b3lyp/6-31g*.
