@@ -1,6 +1,9 @@
 Scripts to generate the 4-Gaussian jobs from an input molecule to calculate the
 'inner sphere' reorganisation energy.
 
+This follows the roughly nomenclature and working of JKP's thesis.
+'we follow the method of Sakanou' - JKP Thesis 2.2 Reorganisation Energy
+
 This is useful as an input into the Marcus equation for electron / hole
 transport in organic semiconducting materials.
 
@@ -13,9 +16,9 @@ The scripts are very hairy.
 
 # Using these Scripts
 
-0. Start with either Gaussian Checkpoints (.chk) or Log Files (.log) of the structures you want to calculate the inner-sphere reorganisation of.
+* Start with either Gaussian Checkpoints (.chk) or Log Files (.log) of the structures you want to calculate the inner-sphere reorganisation of.
 
-1. Run ./polaron_reorg_optimisation_jobs_from_chk.sh or ./polaron_reorg_optimisation_jobs_from_log.sh
+* Run ./polaron_reorg_optimisation_jobs_from_chk.sh or ./polaron_reorg_optimisation_jobs_from_log.sh
 
 ````
     >ls
@@ -24,16 +27,19 @@ The scripts are very hairy.
     >ls
     mylovelymolecule.chk mylovelymolecule_ion_opt.chk mylovelymolecule_ion_opt.com mylovelymolecule_neutral_opt.chk mylovelymolecule_neutral_opt.com 
 ````
+ --> generates two geometry opt jobs (neutral + charged)
 
-2. Run these jobs, retaining the checkpoints.
+* Run these jobs, retaining the checkpoints.
 
-3. Generate the energy jobs (Nb: you could use a different / higher level of theory here)
+* Generate the energy jobs (Nb: you could use a different / higher level of theory here, in particular you might want to think of expanding the basis set for an Anion calculation and/or increasing the convergence)
 ````
     >./polaron_reorg_energy_jobs_from_geom_chks.sh *_opt.chk
 ````
-4. Run these *_E.com jobs...
+ --> generates 4 energy jobs "*_ion_E.chk" / "_neutral_E.chk"
 
-5. Have a tasty look at the reorganisation energies with the handy ./calc_reorg_energy.sh script
+* Run these *_E.com jobs...
+
+* Have a tasty look at the reorganisation energies with the handy ./calc_reorg_energy.sh script
 ````
     >./calc_reorg_energy.sh mylovelymolecule
     C60_b3lypopt
@@ -42,4 +48,4 @@ The scripts are very hairy.
     Ion transition (N_ion - I_ion) in eV: .06829933789
     .13750833951
 ````
-6. C60 has an inner sphere reorganisation energy of 138 meV at b3lyp/6-31g*.
+* C60 has an inner sphere reorganisation energy of 138 meV at b3lyp/6-31g*.
